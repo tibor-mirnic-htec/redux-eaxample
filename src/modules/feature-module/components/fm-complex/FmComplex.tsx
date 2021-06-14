@@ -5,7 +5,7 @@ import { Dispatch } from "redux";
 import { FmIncrement } from "./fm-increment/FmIncrement";
 import { FmDecrement } from "./fm-decrement/FmDecrement";
 import { FmOutput } from "./fm-output/FmOutput";
-import { FmComplexAction, FmComplexActions } from "./store/actions";
+import { FmComplexAction, FmComplexActions } from "./state/actions";
 import { CounterService } from "../../services/counter";
 
 export const FmComplexComponent: FC = () => {

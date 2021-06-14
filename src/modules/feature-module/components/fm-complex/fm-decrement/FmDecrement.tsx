@@ -2,7 +2,7 @@ import { FC, MouseEventHandler, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { Dispatch } from "redux";
 
-import { FmComplexAction, FmComplexActions } from "../store/actions";
+import { FmComplexAction, FmComplexActions } from "../state/actions";
 
 export const FmDecrement: FC = () => {
   const dispatch = useDispatch<Dispatch<FmComplexAction>>();
