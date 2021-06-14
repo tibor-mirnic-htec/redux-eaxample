@@ -1,21 +1,16 @@
 import { FC, MouseEventHandler, useCallback, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Dispatch } from "redux";
 
-import { IRootState } from "src/modules/store";
-
 import { FmIncrement } from "./fm-increment/FmIncrement";
-import { FmDecrement } from "./fm-decrement/fm-decrement";
+import { FmDecrement } from "./fm-decrement/FmDecrement";
+import { FmOutput } from "./fm-output/FmOutput";
 import { FmComplexAction, FmComplexActions } from "./store/actions";
 import { CounterService } from "../../services/counter";
 
 export const FmComplexComponent: FC = () => {
   const [getRandom, setGetRandom] = useState<string>("");
   const dispatch = useDispatch<Dispatch<FmComplexAction>>();
-
-  const count = useSelector<IRootState, number>((state) => {
-    return state.fmComplexReducer.count;
-  });
 
   const increment = useCallback(
     (increment: number) =>
@@ -49,7 +44,9 @@ export const FmComplexComponent: FC = () => {
   return (
     <div>
       <h1>Complex Component</h1>
-      <h3>{count}</h3>
+      <div>
+        <FmOutput />
+      </div>
       <div>
         <FmIncrement />
       </div>
