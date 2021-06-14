@@ -1,14 +1,14 @@
-import { IGetCountIncrementResponse } from "../models/response/counter/get-count-increment";
+import { IGetRandomIncrementResponse } from "../models/response/counter/get-random-increment";
 
 export class CounterService {
-  static async getCountIncrement(): Promise<IGetCountIncrementResponse> {
+  static async getRandomIncrement(): Promise<IGetRandomIncrementResponse> {
     try {
-      const response: IGetCountIncrementResponse = await new Promise(
+      const response: IGetRandomIncrementResponse = await new Promise(
         (resolve) => {
           setTimeout(() => {
             resolve({
-              count: Math.floor(Math.random() * 100),
-            } as IGetCountIncrementResponse);
+              increment: Math.floor(Math.random() * 100),
+            } as IGetRandomIncrementResponse);
           }, 500);
         }
       );

@@ -1,46 +1,11 @@
-import { FC, MouseEventHandler, useCallback, useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { Dispatch } from "redux";
+import { FC } from "react";
 
 import { FmIncrement } from "./fm-increment/FmIncrement";
 import { FmDecrement } from "./fm-decrement/FmDecrement";
 import { FmOutput } from "./fm-output/FmOutput";
-import { FmComplexAction, FmComplexActions } from "./state/actions";
-import { CounterService } from "../../services/counter";
+import { FmRandomIncrement } from "./fm-random-increment/FmRandomIncrement";
 
 export const FmComplexComponent: FC = () => {
-  const [getRandom, setGetRandom] = useState<string>("");
-  const dispatch = useDispatch<Dispatch<FmComplexAction>>();
-
-  const increment = useCallback(
-    (increment: number) =>
-      dispatch({
-        type: FmComplexActions.INCREMENT,
-        payload: increment,
-      }),
-    [dispatch]
-  );
-
-  useEffect(() => {
-    const getRandomIncrement = async () => {
-      try {
-        const response = await CounterService.getCountIncrement();
-
-        increment(response.count);
-      } catch (error) {
-        alert("Error: getCountIncrement");
-      }
-    };
-
-    getRandomIncrement();
-  }, [getRandom, increment]);
-
-  const onRandomIncrement: MouseEventHandler<HTMLButtonElement> = (e) => {
-    e.stopPropagation();
-
-    setGetRandom(`random-${Math.random() * 1000000000000}`);
-  };
-
   return (
     <div>
       <h1>Complex Component</h1>
@@ -54,9 +19,7 @@ export const FmComplexComponent: FC = () => {
         <FmDecrement />
       </div>
       <div>
-        <button type="button" onClick={onRandomIncrement}>
-          Get Random Increment
-        </button>
+        <FmRandomIncrement />
       </div>
     </div>
   );
