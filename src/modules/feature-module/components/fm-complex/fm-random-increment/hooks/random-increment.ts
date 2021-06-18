@@ -10,6 +10,10 @@ export const useRandomIncrementHook = (): RandomIncrementHook => {
   const [getRandom, setGetRandom] = useState<string>("");
   const dispatch = useDispatch<Dispatch<FmComplexAction>>();
 
+  const generateRandom = () => {
+    setGetRandom(`random-${Math.random() * 1000000000000}`);
+  };
+
   const randomIncrement = useCallback(
     (increment: number) =>
       dispatch({
@@ -33,5 +37,5 @@ export const useRandomIncrementHook = (): RandomIncrementHook => {
     getRandomIncrement();
   }, [getRandom, randomIncrement]);
 
-  return setGetRandom;
+  return generateRandom;
 };

@@ -1,10 +1,9 @@
 import { FC } from "react";
-import { useSelector } from "react-redux";
 
-import { IRootState } from "src/modules/store";
+import { useRootStateSelector } from "src/modules/store";
 
 export const FmOutput: FC = () => {
-  const count = useSelector<IRootState, number>((state) => {
+  const count = useRootStateSelector((state) => {
     return state.fmComplexReducer.count;
   });
 
