@@ -1,20 +1,9 @@
-import { FC, MouseEventHandler, useCallback } from "react";
-import { useDispatch } from "react-redux";
-import { Dispatch } from "redux";
+import { FC, MouseEventHandler } from "react";
 
-import { FmComplexAction, FmComplexActions } from "../state/actions";
+import { useDecrementHook } from "./hooks/decrement";
 
 export const FmDecrement: FC = () => {
-  const dispatch = useDispatch<Dispatch<FmComplexAction>>();
-
-  const decrement = useCallback(
-    (decrement: number) =>
-      dispatch({
-        type: FmComplexActions.DECREMENT,
-        payload: decrement,
-      }),
-    [dispatch]
-  );
+  const decrement = useDecrementHook();
 
   const onDecrement: MouseEventHandler<HTMLButtonElement> = (e) => {
     e.stopPropagation();

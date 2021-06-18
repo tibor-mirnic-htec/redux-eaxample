@@ -1,21 +1,9 @@
-import { FC, MouseEventHandler, useCallback } from "react";
-import { useDispatch } from "react-redux";
-import { Dispatch } from "redux";
+import { FC, MouseEventHandler } from "react";
 
-import { FmComplexAction, FmComplexActions } from "../state/actions";
+import { useIncrementHook } from "./hooks/increment";
 
 export const FmIncrement: FC = () => {
-  const dispatch = useDispatch<Dispatch<FmComplexAction>>();
-
-  const increment = useCallback(
-    (increment: number) =>
-      dispatch({
-        type: FmComplexActions.INCREMENT,
-        payload: increment,
-      }),
-    [dispatch]
-  );
-
+  const increment = useIncrementHook();
   const onIncrement: MouseEventHandler<HTMLButtonElement> = (e) => {
     e.stopPropagation();
 

@@ -1,4 +1,4 @@
-import { Action } from "../../../../../common/core-ui/models/store/action";
+import { Action } from "src/common/core-ui";
 
 export enum FmComplexActions {
   INCREMENT = "INCREMENT",
