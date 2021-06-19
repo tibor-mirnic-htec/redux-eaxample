@@ -1,7 +1,7 @@
 import { createStore, combineReducers, compose } from "redux";
 import { TypedUseSelectorHook, useSelector } from "react-redux";
 
-import { fmComplexReducer } from "src/modules/feature-module";
+import { featureModule } from "src/modules/feature-module/reducer";
 
 declare global {
   interface Window {
@@ -13,7 +13,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export const store = createStore(
   combineReducers({
-    fmComplexReducer,
+    featureModule,
   }),
   composeEnhancers()
 );

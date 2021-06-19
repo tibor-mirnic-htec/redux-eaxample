@@ -1,7 +1,7 @@
 import { FmComplexAction, FmComplexActions } from "./actions";
 import { IFmComplexState, initialState } from "./state";
 
-export const fmComplexReducer = (
+export const fmComplex = (
   state: IFmComplexState = initialState,
   action: FmComplexAction
 ): IFmComplexState => {

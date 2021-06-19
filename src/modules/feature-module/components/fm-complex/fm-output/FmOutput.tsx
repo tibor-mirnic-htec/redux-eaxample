@@ -4,7 +4,7 @@ import { useRootStateSelector } from "src/modules/store";
 
 export const FmOutput: FC = () => {
   const count = useRootStateSelector((state) => {
-    return state.fmComplexReducer.count;
+    return state.featureModule.fmComplex.count;
   });
 
   return (
