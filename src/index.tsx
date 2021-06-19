@@ -5,7 +5,9 @@ import { Provider } from "react-redux";
 import reportWebVitals from "./reportWebVitals";
 
 import App from "./App";
-import { store } from "./modules/store";
+// Store has to be loaded directly because of the circular depenedency
+// produced by webpack bundle
+import { store } from "src/modules/store/store";
 
 import "./index.css";
 
