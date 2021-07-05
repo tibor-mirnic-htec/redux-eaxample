@@ -1,21 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
 
 import reportWebVitals from "./reportWebVitals";
 
+import { StoreProvider } from "src/modules/store";
+
 import App from "./App";
-// Store has to be loaded directly because of the circular depenedency
-// produced by webpack bundle
-import { store } from "src/modules/store/store";
 
 import "./index.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <StoreProvider>
       <App />
-    </Provider>
+    </StoreProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
